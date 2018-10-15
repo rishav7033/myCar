@@ -6,7 +6,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/temp1"
+            android:icon="@drawable/tmp1"
             android:title="Temperature" />
         <item
             android:id="@+id/nav_gallery"
@@ -14,28 +14,25 @@
             android:title="Battery" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/car"
             android:title="Run Time" />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Battery Status" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/maps"
             android:title="location" />
+
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Support">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/mail"
+                android:icon="@drawable/mail"
+                android:title="Email" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/num"
+                android:icon="@drawable/phn"
+                android:title="Phone" />
         </menu>
     </item>
 
