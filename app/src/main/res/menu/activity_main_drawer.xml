@@ -5,19 +5,19 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_temp"
             android:icon="@drawable/tmp1"
             android:title="Temperature" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_Battery"
             android:icon="@drawable/battery"
             android:title="Battery" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_runtime"
             android:icon="@drawable/car"
             android:title="Run Time" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_location"
             android:icon="@drawable/maps"
             android:title="location" />
 
