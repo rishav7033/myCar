@@ -33,6 +33,10 @@
                 android:id="@+id/num"
                 android:icon="@drawable/phn"
                 android:title="Phone" />
+            <item
+                android:id="@+id/us"
+                android:icon="@drawable/phn"
+                android:title="Aboutus" />
         </menu>
     </item>
 

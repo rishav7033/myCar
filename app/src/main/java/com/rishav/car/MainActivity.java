@@ -102,6 +102,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.num) {
 
         }
+        else if (id == R.id.us) {
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
