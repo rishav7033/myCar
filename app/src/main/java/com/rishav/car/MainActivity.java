@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Button b1;
 
-    ImageView profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,16 +46,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView =  findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        profile = findViewById( R.id.imageView );
-        /*
-        profile.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent( getApplicationContext(),userProfile.class );
-                startActivity( intent );
-            }
-        } );
-        */
+
     }
 
     @Override
