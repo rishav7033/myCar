@@ -94,8 +94,12 @@ public class MainActivity extends AppCompatActivity
             startActivity(h);
 
         } else if (id == R.id.nav_runtime) {
+            Intent h=new Intent(getApplicationContext(),RunTime.class);
+            startActivity(h);
 
         } else if (id == R.id.nav_location) {
+            Intent h=new Intent(getApplicationContext(),Location.class);
+            startActivity(h);
 
         } else if (id == R.id.mail) {
 
