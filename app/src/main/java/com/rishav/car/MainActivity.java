@@ -88,7 +88,10 @@ public class MainActivity extends AppCompatActivity
         Intent h= new Intent(getApplicationContext(), Temperature.class);
         startActivity(h);
              // Handle the camera action
-        } else if (id == R.id.nav_Battery) {
+        } else if (id == R.id.nav_Battery)
+        {
+            Intent h=new Intent(getApplicationContext(),Battery.class);
+            startActivity(h);
 
         } else if (id == R.id.nav_runtime) {
 
