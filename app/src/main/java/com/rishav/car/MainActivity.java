@@ -118,9 +118,16 @@ public class MainActivity extends AppCompatActivity
         else if (id == R.id.us) {
 
         }
+        else if (id == R.id.imageView){
+        }
 
         DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void goToProfile(View view) {
+        Intent intent = new Intent( getApplicationContext(),userProfile.class );
+        startActivity( intent );
     }
 }

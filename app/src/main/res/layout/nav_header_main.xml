@@ -16,6 +16,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="100dp"
+        android:onClick="goToProfile"
         android:layout_height="100dp"
         android:layout_marginRight="50dp"
         android:contentDescription="@string/nav_header_desc"
