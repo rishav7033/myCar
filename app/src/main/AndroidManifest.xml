@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Temperature" />
-        <activity android:name=".Battery"></activity>
+        <activity android:name=".Battery" />
+        <activity android:name=".userProfile"></activity>
     </application>
 
 </manifest>
