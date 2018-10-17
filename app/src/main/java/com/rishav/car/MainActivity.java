@@ -104,7 +104,8 @@ public class MainActivity extends AppCompatActivity
             Intent h=new Intent(getApplicationContext(),Location.class);
             startActivity(h);
 
-        } else if (id == R.id.mail) {
+        } else if (id == R.id.mail)
+        {
 
         } else if (id == R.id.num) {
 
@@ -121,7 +122,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void goToProfile(View view) {
+
         Intent intent = new Intent( getApplicationContext(),userProfile.class );
         startActivity( intent );
     }
+
+
 }

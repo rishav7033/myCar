@@ -40,7 +40,8 @@ public class Location extends FragmentActivity implements OnMapReadyCallback {
 
         // Add a marker in Sydney and move the camera
         LatLng CU = new LatLng(30.7698, 76.5756);
-        mMap.addMarker(new MarkerOptions().position(CU).title("You are at Chandigarh University"));
+        mMap.addMarker(new MarkerOptions().position(CU).title("At CU"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(CU));
+
     }
 }
