@@ -34,7 +34,7 @@ public class userProfile extends AppCompatActivity {
         dobT.setTypeface(typeface);
         phoneT.setTypeface(typeface);
 
-        Typeface typeface1 = Typeface.createFromAsset(getAssets(), "fonts/anton_regular.ttf");
+        Typeface typeface1 = Typeface.createFromAsset(getAssets(), "fonts/acme_regular.ttf");
         name.setTypeface(typeface1);
         email.setTypeface(typeface1);
         dob.setTypeface(typeface1);
