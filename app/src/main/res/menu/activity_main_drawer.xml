@@ -35,7 +35,7 @@
                 android:title="Phone" />
             <item
                 android:id="@+id/us"
-                android:icon="@drawable/phn"
+                android:icon="@drawable/aboutus"
                 android:title="About Us" />
         </menu>
     </item>

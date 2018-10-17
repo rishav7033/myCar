@@ -13,15 +13,19 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
 
-    <ImageView
-        android:id="@+id/imageView"
+    <android.support.v7.widget.CardView
         android:layout_width="100dp"
         android:onClick="goToProfile"
         android:layout_height="100dp"
-        android:layout_marginRight="50dp"
-        android:contentDescription="@string/nav_header_desc"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@drawable/marcus" />
+        app:cardCornerRadius="100dp">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/nav_header_desc"
+            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            android:background="@drawable/marcus"/>
+    </android.support.v7.widget.CardView>
 
     <TextView
         android:layout_width="match_parent"
