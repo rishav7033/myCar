@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorit"
+    tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+        app:srcCompat="@drawable/flogo"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="UID"
+        android:gravity="center"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        android:hint="Password"
+        android:gravity="center"
+        android:inputType="textPassword"/>
+
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           
+            android:text="LOG IN"
+
+            android:onClick="gotomain"
+            android:layout_gravity="center"/>
+
+    <Button
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Have a Trial Version"
+            android:gravity="center"
+            android:onClick="go2main"
+               android:layout_gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        android:layout_gravity="center"
+        android:text="Forgot Password"/>
+
+</LinearLayout>
+
+
+
