@@ -32,10 +32,11 @@
             <item
                 android:id="@+id/num"
                 android:icon="@drawable/phn"
-
+               android:onClick="make_call"
                 android:title="Phone" />
             <item
                 android:id="@+id/us"
+
                 android:icon="@drawable/aboutus"
                 android:title="About Us" />
         </menu>

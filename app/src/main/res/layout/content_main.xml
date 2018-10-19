@@ -9,19 +9,5 @@
     android:orientation="vertical"
     tools:showIn="@layout/app_bar_main">
 
-    <FrameLayout
-        android:id="@+id/fr1"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@color/colorit">
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/fr2"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@color/colorAccent">
-
-    </FrameLayout>
 
 </LinearLayout>
