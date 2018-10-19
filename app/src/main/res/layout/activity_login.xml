@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,49 +13,91 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
 
-        app:srcCompat="@drawable/flogo"
-        />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/flogo" />
+
     <EditText
+        android:id="@+id/editText2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colortxt"
+        android:gravity="center"
         android:hint="UID"
-        android:gravity="center"
-        />
+        app:layout_constraintBottom_toBottomOf="@+id/editText"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.161" />
+
     <EditText
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="40dp"
+        android:layout_marginBottom="224dp"
+
+        android:background="@color/colortxt"
+        android:gravity="center_horizontal"
+
         android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingTop="40dp"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="parent" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="gotomain"
+        android:text="LOG IN"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editText"
+        app:layout_constraintVertical_bias="0.586" />
+
+    <Button
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:inputType="textPassword"/>
+        android:onClick="go2main"
+        android:text="Sign In"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintStart_toEndOf="parent" />
+
+
+
+
 
     <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-           
-            android:text="LOG IN"
-
-            android:onClick="gotomain"
-            android:layout_gravity="center"/>
-
-    <Button
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="Have a Trial Version"
-            android:gravity="center"
-            android:onClick="go2main"
-               android:layout_gravity="center"/>
-
-    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="40dp"
         android:layout_gravity="center"
-        android:text="Forgot Password"/>
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:paddingTop="40dp"
+        android:text="Forgot Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
 
 
 
