@@ -6,8 +6,55 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
+    android:background="@drawable/side_nav_bar"
+    android:textColor="#FFFFFF"
     android:orientation="vertical"
     tools:showIn="@layout/app_bar_main">
+
+    <FrameLayout
+        android:layout_weight="8"
+        android:id="@+id/fr1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+    </FrameLayout>
+
+    <Button
+        android:layout_weight="1"
+        android:text="Battery"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:onClick="checkBattery"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:text="Doorlock"
+        android:background="@android:color/transparent"
+        android:layout_weight="1"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:onClick="checkDoorLocked"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:text="Filling Stations"
+        android:layout_width="match_parent"
+        android:onClick="FillingStationsList"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:background="@android:color/transparent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <Button
+        android:text="Run Time"
+        android:layout_width="match_parent"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:onClick="RunTime"
+        android:background="@android:color/transparent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
 
 
 </LinearLayout>
