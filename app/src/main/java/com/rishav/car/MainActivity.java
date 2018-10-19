@@ -24,6 +24,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    topFrag o1;
+    ImageView imageView;
     FragmentManager fragmentManager;
     private static final int request_call=1;
 /*
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity
         toolbar.setBackgroundColor(Color.parseColor("#00FFFFFF"));
         setSupportActionBar(toolbar);
 
-
+        imageView = findViewById(R.id.fr1);
         DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -73,11 +74,6 @@ public class MainActivity extends AppCompatActivity
 
         nameHEADER.setText(nameV);
         emailHEADER.setText(emailV);*/
-
-
-        o1= new topFrag();
-        fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().add( R.id.fr1,o1 ).commit();
 
     }
 
@@ -178,6 +174,8 @@ public class MainActivity extends AppCompatActivity
 
 
     public void checkBattery(View view) {
+        imageView.setBackgroundResource(R.drawable.chargin1);
+        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
     }
 
     public void checkDoorLocked(View view) {

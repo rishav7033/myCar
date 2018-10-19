@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,54 +11,91 @@
     android:orientation="vertical"
     tools:showIn="@layout/app_bar_main">
 
-    <FrameLayout
-        android:layout_weight="8"
+    <ImageView
         android:id="@+id/fr1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent">
-    </FrameLayout>
+        android:layout_height="200dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/chargin1"
+        android:layout_weight="8"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
 
     <Button
+        android:id="@+id/button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
         android:layout_weight="1"
-        android:text="Battery"
-        android:textColor="#FFFFFF"
-        android:textAllCaps="false"
-        android:textSize="20dp"
+        android:background="@android:color/transparent"
         android:onClick="checkBattery"
-        android:background="@android:color/transparent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:text="Battery"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
-        android:text="Doorlock"
-        android:background="@android:color/transparent"
-        android:textSize="20sp"
+        android:id="@+id/button5"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
         android:layout_weight="1"
-        android:textColor="#FFFFFF"
-        android:textAllCaps="false"
+        android:background="@android:color/transparent"
         android:onClick="checkDoorLocked"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="Doorlock"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
-        android:text="Filling Stations"
-        android:layout_width="match_parent"
+        android:id="@+id/button4"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
         android:onClick="FillingStationsList"
-        android:textColor="#FFFFFF"
+        android:text="Filling Stations"
         android:textAllCaps="false"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
-        android:background="@android:color/transparent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
+        android:id="@+id/button3"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:onClick="RunTime"
         android:text="Run Time"
-        android:layout_width="match_parent"
+        android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        android:textAllCaps="false"
-        android:onClick="RunTime"
-        android:background="@android:color/transparent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
