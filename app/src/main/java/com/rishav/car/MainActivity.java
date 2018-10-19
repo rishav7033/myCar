@@ -34,7 +34,6 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
     ImageView imageView;
     FragmentManager fragmentManager;
     private static final int request_call=1;
@@ -59,6 +58,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView =  findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
 /*
         nameV = getIntent().getStringExtra("Name");
         emailV = getIntent().getStringExtra("Email");
@@ -179,6 +180,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void checkDoorLocked(View view) {
+        imageView.setBackgroundResource(R.drawable.door_locked2_1);
     }
 
     public void FillingStationsList(View view) {
@@ -187,6 +189,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void RunTime(View view) {
+        imageView.setBackgroundResource(R.drawable.runtime2_1);
     }
 
 
