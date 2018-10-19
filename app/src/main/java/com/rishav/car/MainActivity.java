@@ -88,9 +88,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_temp) {
-        Intent h= new Intent(getApplicationContext(), Temperature.class);
-        startActivity(h);
-             // Handle the camera action
+            Intent h= new Intent(getApplicationContext(), Temperature.class);
+            startActivity(h);
+            // Handle the camera action
         } else if (id == R.id.nav_Battery)
         {
             Intent h=new Intent(getApplicationContext(),Battery.class);
