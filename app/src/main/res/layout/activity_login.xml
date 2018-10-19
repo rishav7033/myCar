@@ -78,7 +78,7 @@
         android:layout_marginTop="408dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
-        android:onClick="go2main"
+        android:onClick="SignUpUser"
         android:text="Sign Up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

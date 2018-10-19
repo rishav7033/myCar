@@ -41,4 +41,9 @@ public class Login extends AppCompatActivity {
                     }
                 }).setNegativeButton("no", null).show();
     }
+
+    public void SignUpUser(View view) {
+        Intent intent = new Intent(this,Signin.class);
+        startActivity(intent);
+    }
 }
