@@ -32,6 +32,7 @@
             <item
                 android:id="@+id/num"
                 android:icon="@drawable/phn"
+                android:onClick="dialer"
                 android:title="Phone" />
             <item
                 android:id="@+id/us"

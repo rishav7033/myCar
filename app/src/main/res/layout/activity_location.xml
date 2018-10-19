@@ -9,7 +9,7 @@
     map:cameraTargetLat="30.7698"
     map:cameraTargetLng="76.5756"
     map:cameraTilt="15"
-    map:cameraZoom="19"
+    map:cameraZoom="15"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Location" />

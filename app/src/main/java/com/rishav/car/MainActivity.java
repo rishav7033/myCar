@@ -1,9 +1,12 @@
 package com.rishav.car;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -72,8 +75,21 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+        } else  {
+           // super.onBackPressed();
+            new AlertDialog.Builder(this).setTitle("Exit")
+                    .setMessage("Are you sure?")
+                    .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            Intent intent = new Intent(Intent.ACTION_MAIN);
+                            intent.addCategory(Intent.CATEGORY_HOME);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }).setNegativeButton("no", null).show();
         }
     }
 
@@ -148,6 +164,7 @@ public class MainActivity extends AppCompatActivity
         intent.putExtra("Phone",phoneV);*/
         startActivity( intent );
     }
+
 
 
 }
