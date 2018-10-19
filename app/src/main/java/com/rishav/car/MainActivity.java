@@ -1,13 +1,17 @@
 package com.rishav.car;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -21,6 +25,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -30,6 +35,7 @@ public class MainActivity extends AppCompatActivity
 
     topFrag o1;
     FragmentManager fragmentManager;
+    private static final int request_call=1;
 /*
     String nameV,emailV,phoneV,dobV;
     TextView nameHEADER,emailHEADER,nameProfile,emailProfile,dobProfile,phoneProfile;*/
@@ -182,5 +188,43 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void RunTime(View view) {
+    }
+
+
+    public void call(View view)
+    {
+        //saved_view=view;
+
+
+    }
+
+
+    public void make_call(MenuItem item) {
+        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CALL_PHONE},request_call);
+        }
+        else
+        {
+            Intent i= new Intent(Intent.ACTION_DIAL);
+            i.setData(Uri.parse("tel:8146873640"));
+            startActivity(i);
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,  String[] permissions,  int[] grantResults) {
+        if(requestCode == request_call)
+        {
+            if(/*grantResults.length>0 &&*/ grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
+                make_call(null);
+            }
+            else
+            {
+                Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
