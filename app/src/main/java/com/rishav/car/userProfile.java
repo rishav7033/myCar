@@ -37,6 +37,11 @@ public class userProfile extends AppCompatActivity {
         email.setTypeface(typeface1);
         dob.setTypeface(typeface1);
         phone.setTypeface(typeface1);
+
+        name.setText(getIntent().getStringExtra("Name"));
+        email.setText(getIntent().getStringExtra("Email"));
+        dob.setText(getIntent().getStringExtra("DOB"));
+        phone.setText(getIntent().getStringExtra("Phone"));
     }
 
 }

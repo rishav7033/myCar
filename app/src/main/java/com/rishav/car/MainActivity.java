@@ -18,11 +18,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
+    String nameV,emailV,phoneV,dobV;
+    TextView nameHEADER,emailHEADER,nameProfile,emailProfile,dobProfile,phoneProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +53,21 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView =  findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+/*
+        nameV = getIntent().getStringExtra("Name");
+        emailV = getIntent().getStringExtra("Email");
+        phoneV = getIntent().getStringExtra("Phone");
+        dobV = getIntent().getStringExtra("DOB");
 
+        nameHEADER = findViewById(R.id.nameUser);
+        emailHEADER = findViewById(R.id.emailUser);
+        nameProfile = findViewById(R.id.name);
+        emailProfile = findViewById(R.id.email);
+        dobProfile = findViewById(R.id.dob);
+        phoneProfile = findViewById(R.id.phone);
 
+        nameHEADER.setText(nameV);
+        emailHEADER.setText(emailV);*/
     }
 
     @Override
@@ -140,6 +158,10 @@ public class MainActivity extends AppCompatActivity
     public void goToProfile(View view) {
 
         Intent intent = new Intent( getApplicationContext(),userProfile.class );
+       /* intent.putExtra("Name",nameV);
+        intent.putExtra("Email",emailV);
+        intent.putExtra("DOB",dobV);
+        intent.putExtra("Phone",phoneV);*/
         startActivity( intent );
     }
 
