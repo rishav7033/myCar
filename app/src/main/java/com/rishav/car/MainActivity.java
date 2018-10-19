@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -26,8 +27,11 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
+    topFrag o1;
+    FragmentManager fragmentManager;
+/*
     String nameV,emailV,phoneV,dobV;
-    TextView nameHEADER,emailHEADER,nameProfile,emailProfile,dobProfile,phoneProfile;
+    TextView nameHEADER,emailHEADER,nameProfile,emailProfile,dobProfile,phoneProfile;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +40,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
-       /* FloatingActionButton fab =  findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
 
         DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -70,6 +64,12 @@ public class MainActivity extends AppCompatActivity
 
         nameHEADER.setText(nameV);
         emailHEADER.setText(emailV);*/
+
+
+        o1= new topFrag();
+        fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().add( R.id.fr1,o1 ).commit();
+
     }
 
     @Override
@@ -168,7 +168,17 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    public void checkBattery(View view) {
+    }
 
+    public void checkDoorLocked(View view) {
+    }
 
+    public void FillingStationsList(View view) {
+        Intent intent = new Intent(this,Location.class);
+        startActivity(intent);
+    }
 
+    public void RunTime(View view) {
+    }
 }
