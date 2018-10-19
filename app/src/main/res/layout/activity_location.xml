@@ -3,7 +3,13 @@
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
+
+    class="com.google.android.gms.maps.SupportMapFragment"
+    map:cameraBearing="112.5"
+    map:cameraTargetLat="30.7698"
+    map:cameraTargetLng="76.5756"
+    map:cameraTilt="15"
+    map:cameraZoom="19"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Location" />

@@ -42,6 +42,9 @@ public class Location extends FragmentActivity implements OnMapReadyCallback {
         LatLng CU = new LatLng(30.7698, 76.5756);
         mMap.addMarker(new MarkerOptions().position(CU).title("At CU"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(CU));
+      //  mMap.setMapType(mMap.MAP_TYPE_NORMAL);
+
+
 
     }
 }
