@@ -192,12 +192,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    public void call(View view)
-    {
-        //saved_view=view;
 
-
-    }
 
 
     public void make_call(MenuItem item) {
