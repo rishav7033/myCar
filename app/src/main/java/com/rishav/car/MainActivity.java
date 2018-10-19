@@ -1,6 +1,7 @@
 package com.rishav.car;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -226,5 +227,25 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    public void mail(MenuItem it)
+    {
+
+
+
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:Rawalchirag2000@gmail.com"));
+        //startActivity(intent);
+
+        try {
+            //intent.setType("message/rfc822");
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            //TODO: Handle case where no email app is available
+        }
+
+
     }
 }
