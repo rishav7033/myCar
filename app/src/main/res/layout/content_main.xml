@@ -24,6 +24,7 @@
         android:text="Battery"
         android:textColor="#FFFFFF"
         android:textAllCaps="false"
+        android:textSize="20dp"
         android:onClick="checkBattery"
         android:background="@android:color/transparent"
         android:layout_width="match_parent"
@@ -31,6 +32,7 @@
     <Button
         android:text="Doorlock"
         android:background="@android:color/transparent"
+        android:textSize="20sp"
         android:layout_weight="1"
         android:textColor="#FFFFFF"
         android:textAllCaps="false"
@@ -43,6 +45,7 @@
         android:onClick="FillingStationsList"
         android:textColor="#FFFFFF"
         android:textAllCaps="false"
+        android:textSize="20sp"
         android:background="@android:color/transparent"
         android:layout_height="wrap_content"
         android:layout_weight="1"/>
@@ -50,6 +53,7 @@
         android:text="Run Time"
         android:layout_width="match_parent"
         android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android:textAllCaps="false"
         android:onClick="RunTime"
         android:background="@android:color/transparent"
