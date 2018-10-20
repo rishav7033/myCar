@@ -1,9 +1,19 @@
 package com.rishav.car;
 
+import android.Manifest;
+import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,29 +24,32 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    ImageView imageView;
+    FragmentManager fragmentManager;
+    private static final int request_call=1;
+/*
+    String nameV,emailV,phoneV,dobV;
+    TextView nameHEADER,emailHEADER,nameProfile,emailProfile,dobProfile,phoneProfile;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar =  findViewById(R.id.toolbar);
+        toolbar.setBackgroundColor(Color.parseColor("#00FFFFFF"));
         setSupportActionBar(toolbar);
 
-       /* FloatingActionButton fab =  findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-
+        imageView = findViewById(R.id.fr1);
         DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -47,6 +60,22 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
+/*
+        nameV = getIntent().getStringExtra("Name");
+        emailV = getIntent().getStringExtra("Email");
+        phoneV = getIntent().getStringExtra("Phone");
+        dobV = getIntent().getStringExtra("DOB");
+
+        nameHEADER = findViewById(R.id.nameUser);
+        emailHEADER = findViewById(R.id.emailUser);
+        nameProfile = findViewById(R.id.name);
+        emailProfile = findViewById(R.id.email);
+        dobProfile = findViewById(R.id.dob);
+        phoneProfile = findViewById(R.id.phone);
+
+        nameHEADER.setText(nameV);
+        emailHEADER.setText(emailV);*/
+
     }
 
     @Override
@@ -54,8 +83,21 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+        } else  {
+           // super.onBackPressed();
+            new AlertDialog.Builder(this).setTitle("Exit")
+                    .setMessage("Are you sure?")
+                    .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            Intent intent = new Intent(Intent.ACTION_MAIN);
+                            intent.addCategory(Intent.CATEGORY_HOME);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }).setNegativeButton("no", null).show();
         }
     }
 
@@ -88,9 +130,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_temp) {
-        Intent h= new Intent(getApplicationContext(), Temperature.class);
-        startActivity(h);
-             // Handle the camera action
+            Intent h= new Intent(getApplicationContext(), Temperature.class);
+            startActivity(h);
+            // Handle the camera action
         } else if (id == R.id.nav_Battery)
         {
             Intent h=new Intent(getApplicationContext(),Battery.class);
@@ -124,8 +166,82 @@ public class MainActivity extends AppCompatActivity
     public void goToProfile(View view) {
 
         Intent intent = new Intent( getApplicationContext(),userProfile.class );
+       /* intent.putExtra("Name",nameV);
+        intent.putExtra("Email",emailV);
+        intent.putExtra("DOB",dobV);
+        intent.putExtra("Phone",phoneV);*/
         startActivity( intent );
     }
 
 
+    public void checkBattery(View view) {
+        imageView.setBackgroundResource(R.drawable.chargin1);
+        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+    }
+
+    public void checkDoorLocked(View view) {
+        imageView.setBackgroundResource(R.drawable.door_locked2_1);
+    }
+
+    public void FillingStationsList(View view) {
+        Intent intent = new Intent(this,Location.class);
+        startActivity(intent);
+    }
+
+    public void RunTime(View view) {
+        imageView.setBackgroundResource(R.drawable.runtime2_1);
+    }
+
+
+
+
+
+    public void make_call(MenuItem item) {
+        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CALL_PHONE},request_call);
+        }
+        else
+        {
+            Intent i= new Intent(Intent.ACTION_DIAL);
+            i.setData(Uri.parse("tel:8146873640"));
+            startActivity(i);
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,  String[] permissions,  int[] grantResults) {
+        if(requestCode == request_call)
+        {
+            if(/*grantResults.length>0 &&*/ grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
+                make_call(null);
+            }
+            else
+            {
+                Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public void mail(MenuItem it)
+    {
+
+
+
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:Rawalchirag2000@gmail.com"));
+        //startActivity(intent);
+
+        try {
+            //intent.setType("message/rfc822");
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            //TODO: Handle case where no email app is available
+        }
+
+
+    }
 }
