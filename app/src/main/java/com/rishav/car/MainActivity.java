@@ -35,18 +35,14 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     ImageView imageView;
-    FragmentManager fragmentManager;
     private static final int request_call=1;
-/*
-    String nameV,emailV,phoneV,dobV;
-    TextView nameHEADER,emailHEADER,nameProfile,emailProfile,dobProfile,phoneProfile;*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar =  findViewById(R.id.toolbar);
-        toolbar.setBackgroundColor(Color.parseColor("#00FFFFFF"));
         setSupportActionBar(toolbar);
 
         imageView = findViewById(R.id.fr1);
@@ -58,24 +54,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView =  findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-
-/*
-        nameV = getIntent().getStringExtra("Name");
-        emailV = getIntent().getStringExtra("Email");
-        phoneV = getIntent().getStringExtra("Phone");
-        dobV = getIntent().getStringExtra("DOB");
-
-        nameHEADER = findViewById(R.id.nameUser);
-        emailHEADER = findViewById(R.id.emailUser);
-        nameProfile = findViewById(R.id.name);
-        emailProfile = findViewById(R.id.email);
-        dobProfile = findViewById(R.id.dob);
-        phoneProfile = findViewById(R.id.phone);
-
-        nameHEADER.setText(nameV);
-        emailHEADER.setText(emailV);*/
-
     }
 
     @Override
@@ -166,13 +144,8 @@ public class MainActivity extends AppCompatActivity
     public void goToProfile(View view) {
 
         Intent intent = new Intent( getApplicationContext(),userProfile.class );
-       /* intent.putExtra("Name",nameV);
-        intent.putExtra("Email",emailV);
-        intent.putExtra("DOB",dobV);
-        intent.putExtra("Phone",phoneV);*/
         startActivity( intent );
     }
-
 
     public void checkBattery(View view) {
         imageView.setBackgroundResource(R.drawable.chargin1);
@@ -192,10 +165,6 @@ public class MainActivity extends AppCompatActivity
         imageView.setBackgroundResource(R.drawable.runtime2_1);
     }
 
-
-
-
-
     public void make_call(MenuItem item) {
         if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED)
         {
@@ -207,7 +176,6 @@ public class MainActivity extends AppCompatActivity
             i.setData(Uri.parse("tel:8146873640"));
             startActivity(i);
         }
-
     }
 
     @Override
@@ -227,21 +195,15 @@ public class MainActivity extends AppCompatActivity
 
     public void mail(MenuItem it)
     {
-
-
-
-
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:Rawalchirag2000@gmail.com"));
         //startActivity(intent);
-
         try {
             //intent.setType("message/rfc822");
             startActivity(intent);
         } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
             //TODO: Handle case where no email app is available
         }
-
-
     }
 }

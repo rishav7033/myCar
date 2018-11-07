@@ -1,5 +1,6 @@
 package com.rishav.car;
 
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,10 +39,6 @@ public class userProfile extends AppCompatActivity {
         dob.setTypeface(typeface1);
         phone.setTypeface(typeface1);
 
-        name.setText(getIntent().getStringExtra("Name"));
-        email.setText(getIntent().getStringExtra("Email"));
-        dob.setText(getIntent().getStringExtra("DOB"));
-        phone.setText(getIntent().getStringExtra("Phone"));
     }
 
 }

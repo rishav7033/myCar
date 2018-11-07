@@ -1,5 +1,10 @@
 package com.rishav.car;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -11,14 +16,17 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Location extends FragmentActivity implements OnMapReadyCallback {
+public class Location extends FragmentActivity implements OnMapReadyCallback ,LocationListener {
 
     private GoogleMap mMap;
+    private LocationManager locationManager;
+    double lat,lng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
+        initLocation();
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -26,6 +34,21 @@ public class Location extends FragmentActivity implements OnMapReadyCallback {
     }
 
 
+    void initLocation() {
+        locationManager = (LocationManager) getSystemService( LOCATION_SERVICE );
+        if (ActivityCompat.checkSelfPermission( this, Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission( this, Manifest.permission.ACCESS_COARSE_LOCATION ) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        locationManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 10, 5, this );
+
+    }
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -38,30 +61,38 @@ public class Location extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-
-
         // Add a marker in Sydney and move the camera
         LatLng CU = new LatLng(30.7698, 76.5756);
         mMap.addMarker(new MarkerOptions().position(CU).title("Block 1"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(CU));
 
-
-        LatLng AU = new LatLng(30.7714, 76.5663);
-        mMap.addMarker(new MarkerOptions().position(AU).title("Block 14"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(AU));
-
-        LatLng b6 = new LatLng(30.767682, 76.576094);
-        mMap.addMarker(new MarkerOptions().position(b6).title("Block 6"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(AU));
-
-
-        LatLng b9 = new LatLng(30.771627, 76.578257);
-        mMap.addMarker(new MarkerOptions().position(b9).title("Block 9"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(AU));
+        LatLng userLocation = new LatLng( lat,lng );
+        mMap.addMarker( new MarkerOptions().position( userLocation ).title( "You are Here" ) );
+        mMap.moveCamera( CameraUpdateFactory.newLatLng( userLocation ) );
       //  mMap.setMapType(mMap.MAP_TYPE_NORMAL);
 
 
+
+    }
+
+    @Override
+    public void onLocationChanged(android.location.Location location) {
+        lat = location.getLatitude();
+        lng = location.getLongitude();
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
 
     }
 }
